@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title
+      = t ".title-app"
+    = render "layouts/rails_default"
+  body
+    = render "layouts/menus"
+    = render "layouts/alerts"
+    = yield

@@ -1,0 +1,14 @@
+p
+  = t ".title-mail"
+  = @email
+  = t ".hi"
+- if @resource.try(:unconfirmed_email?)
+  p
+    = t ".lb-mail"
+    = @resource.unconfirmed_email
+    = t".hi-dot"
+- else
+  p
+    = t ".lb-mailed"
+    = @resource.email
+    = t".hi-dot"

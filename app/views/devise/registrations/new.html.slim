@@ -1,0 +1,18 @@
+.row
+  .col-lg-4.col-md-6.ml-auto.mr-auto
+    h1.text-center
+      = t ".title-reg"
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render partial: 'devise/shared/error_messages', resource: resource
+      .form-group
+        = f.text_field :username, autofocus: false, class: 'form-control', placeholder: t(".user-reg")
+      .form-group
+        = f.email_field :email, class: 'form-control', placeholder: t(".email-reg")
+      .form-group
+        = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: t(".pass-reg")
+      .form-group
+        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: t(".lb-confir")
+      .form-group
+        = f.submit t(".btn-sign"), class: "btn btn-primary btn-block btn-lg"
+    .text-center
+      = render "devise/shared/links"

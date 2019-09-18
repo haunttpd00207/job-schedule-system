@@ -1,0 +1,8 @@
+p
+  = t ".title-mail"
+  = @email
+  | !
+p
+  = t ".mail-mess"
+p
+  = link_to t(".btn-sure"), confirmation_url(@resource, confirmation_token: @token)
