@@ -17,15 +17,33 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build task_params
-    @task.save
+    if @task.save
+      redirect_to root_path, success: t(".create_task")
+    else
+      respond_to do |format|
+        format.js {}
+      end
+    end
   end
 
   def update
-    @task.update task_params
+    if @task.update task_params
+      redirect_to root_path, success: t(".update_task")
+    else
+      respond_to do |format|
+        format.js {}
+      end
+    end
   end
 
   def destroy
-    @task.destroy
+    if @task.destroy
+      redirect_to root_path, danger: t(".destroy_task")
+    else
+      respond_to do |format|
+        format.js {}
+      end
+    end
   end
 
   private

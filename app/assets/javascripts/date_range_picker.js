@@ -1,4 +1,3 @@
-var date_range_picker;
 date_range_picker = function() {
   $('.date-range-picker').each(function(){
     $(this).daterangepicker({
@@ -11,4 +10,4 @@ date_range_picker = function() {
     });
   })
 };
-$(document).on('turbolinks:load', date_range_picker);
+$(document).on('turbolinks:load', date_range_picker());

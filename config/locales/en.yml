@@ -13,8 +13,29 @@ en:
     new:
       create_taks: "Create New Task"
     form:
+      new_recurring_task: "New Recurring Task"
       delete_task: "Delete"
       sure: "Are you sure?"
+    create:
+      create_task: "Create task successfully"
+    update:
+      update_task: "Update task successfully"
+    destroy:
+      destroy_task: "Delete task successfully"
+  recurring_tasks:
+    new:
+      create_recurring: "Create Recurring Task"
+    edit:
+      edit_recurring: "Edit Recurring Task"
+    form:
+      delete_recurring: "Delete"
+    create:
+      create_recuring_task: "Create recurring task successfully"
+    update:
+      update_recuring_task: "Update recurring task successfully"
+      update_anchor_task: "Update anchor recurring task successfully"
+    destroy:
+      destroy_recuring_task: "Delete recurring task successfully"
   static_pages:
     home:
       title-home: "Static pages of home"

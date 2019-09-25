@@ -20,4 +20,5 @@
 //= require daterangepicker
 //= require bootstrap-datepicker
 //= require activestorage
+//= require toastr
 //= require_tree .

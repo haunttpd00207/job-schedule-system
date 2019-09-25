@@ -1,0 +1,19 @@
+= simple_form_for @recurring_task, remote: true do |f|
+  #error_messages
+  .form-inputs
+    = f.input :title, input_html: { class: "form-control" }
+    = f.input :anchor, input_html: { class: "form-control" }
+    = f.input :frequency, as: :select, collection: RecurringTask.frequencies.keys, input_html: { class: "form-control" }
+    = f.input :color, as: :select, collection: [['Blue','blue'], ['Green','green'], ['Red','red']], input_html: { class: 'form-control' }
+  .form-actions
+    = f.button :submit
+    = link_to 'New Task',
+              new_task_path,
+              class: 'btn btn-default',
+              remote: true if @recurring_task.new_record?
+    = link_to 'Delete',
+              @recurring_task,
+              method: :delete,
+              class: 'btn btn-danger',
+              data: { confirm: 'Are you sure?' },
+              remote: true unless @recurring_task.new_record?

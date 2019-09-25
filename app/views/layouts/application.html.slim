@@ -5,8 +5,8 @@ html
       = t ".title-app"
     = render "layouts/rails_default"
   body
+    = render "layouts/flash_messages"
     .container-fluid
       = render "layouts/menus"
-      = render "layouts/alerts"
       #remote_container
       = yield
