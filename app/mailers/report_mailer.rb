@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ReportMailer < ApplicationMailer
-  def report_email report, user
+  def report_email(report, user)
     @user = user
     @reports = report
     mail to: user.email, subject: "Sample Email"

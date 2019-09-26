@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  resources :holidays, only: :index
   resources :recurring_tasks
   resources :direct_messages, only: :show
 

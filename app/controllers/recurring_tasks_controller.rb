@@ -34,7 +34,7 @@ class RecurringTasksController < ApplicationController
   private
 
   def recurring_task_params
-    params.require(:recurring_task).permit :title, :anchor, :frequency, :color
+    params.require(:recurring_task).permit :title, :anchor, :frequency, :color, :limit
   end
 
   def load_recurring_task

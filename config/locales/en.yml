@@ -58,8 +58,25 @@ en:
       edit_recurring: "Edit Recurring Task"
     form:
       delete_recurring: "Delete"
+      colors:
+        blue: "Blue"
+        green: "Green"
+        red: "Red"
+      months:
+        0: "1 month"
+        1: "2 month"
+        2: "3 month"
+        3: "4 month"
+        4: "5 month"
+        5: "6 month"
+        6: "7 month"
+        7: "8 month"
+        8: "9 month"
+        9: "10 month"
+        10: "11 month"
+        11: "12 month"
     create:
-      create_recuring_task: "Create recurring task successfully"
+      create_recurring_task: "Create recurring task successfully"
     update:
       update_recurring_task: "Update recurring task successfully"
       update_anchor_task: "Update anchor recurring task successfully"

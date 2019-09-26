@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RestoresController < ApplicationController
   def update
     ActiveRecord::Base.transaction do

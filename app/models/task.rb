@@ -10,8 +10,7 @@ class Task < ApplicationRecord
   validates :title, presence: true
   validates :start, presence: true
   validates :end, presence: true
-
-  # scope :tasks_of_month, -> (start_date, end_date) { where(start: start_date..end_date) }
+  validates :color, presence: true
 
   scope :tasks_of_months, (lambda do |start_date, end_date|
     where start: start_date..end_date

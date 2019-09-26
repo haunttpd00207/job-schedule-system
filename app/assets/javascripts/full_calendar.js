@@ -8,6 +8,9 @@ initialize_calendar = function() {
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
       },
+      defaultView: 'agendaWeek',
+      minTime: "07:30:00",
+      maxTime: "21:30:00",
       selectable: true,
       selectHelper: true,
       editable: true,
@@ -15,7 +18,15 @@ initialize_calendar = function() {
       eventSources: [
         '/tasks.json',
         '/recurring_tasks.json',
+        '/holidays.json'
       ],
+
+      eventRender: function (event, element) {
+        if(event.rendering == 'background') {
+          element.append(event.title);
+          element.append(event.start);
+        }
+      },
 
       select: function(start, end) {
         $.getScript('/tasks/new', function() {
@@ -26,6 +37,21 @@ initialize_calendar = function() {
         });
 
         calendar.fullCalendar('unselect');
+      },
+
+      eventResize:function(task, delta, eventResizeInfo){
+        task_data = {
+          task: {
+            id: task.id,
+            start: task.start.format(),
+            end: task.end.format()
+          }
+        };
+        $.ajax({
+            url: task.update_url,
+            data: task_data,
+            type: 'PATCH'
+        });
       },
 
       eventDrop: function(task, delta, revertFunc) {
