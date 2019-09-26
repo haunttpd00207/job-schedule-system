@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "toastr";
 
 .alert-alert {
   @extend .alert-danger;
@@ -8,3 +9,9 @@
   @extend .alert-success;
 }
 
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 5%;
+  left: 40%;
+}

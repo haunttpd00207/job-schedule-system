@@ -12,7 +12,10 @@ initialize_calendar = function() {
       selectHelper: true,
       editable: true,
       eventLimit: true,
-      events: '/tasks.json',
+      eventSources: [
+        '/tasks.json',
+        '/recurring_tasks.json',
+      ],
 
       select: function(start, end) {
         $.getScript('/tasks/new', function() {
