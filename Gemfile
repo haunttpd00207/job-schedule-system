@@ -38,6 +38,7 @@ gem "paranoia", "~> 2.2"
 gem "popper_js"
 gem "ice_cube"
 gem "font-awesome-rails"
+gem "pry-rails", group: :development
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
