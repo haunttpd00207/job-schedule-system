@@ -5,6 +5,12 @@ class User < ApplicationRecord
   has_many :recurring_tasks
   has_many :reports
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-         :validatable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+  has_many :chatroom_users
+  has_many :chatrooms, through: :chatroom_users
+  has_many :messages
+
+  enum role: { user: 0, leader: 1, admin: 2 }
 end
