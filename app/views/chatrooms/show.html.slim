@@ -1,0 +1,15 @@
+.container
+  h3.text-center
+    = @chatroom.name
+  .messaging
+    .inbox_msg
+      .mesgs
+        .msg_history#messages data-chatroom-id="#{ @chatroom.id }" data-user-id="#{ current_user.id }"
+          = render "messages/message"
+        .type_msg
+          .input_msg_write
+            = form_for [@chatroom, @mess ] do |f|
+              = f.hidden_field :user_id, value: current_user.id
+              = f.text_field :body, class: "form-control write_msg", autofocus: true, placeholder: t(".mess-show")
+              button.msg_send_btn[type="submit" value="Send"]
+                i.fa.fa-paper-plane-o[aria-hidden="true"]

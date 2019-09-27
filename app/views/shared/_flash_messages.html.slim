@@ -1,6 +1,6 @@
 - if flash.present?
   #flash
-    - flash.each do |f|
+    - flash.each do |f, message|
       - case f
       - when "notice"
         - type = "info"
@@ -15,4 +15,4 @@
       - else
         - type = 'success'
       javascript:
-        toastr["#{type}"]("#{flash[f]}")
+        toastr["#{type}"]("#{message}")

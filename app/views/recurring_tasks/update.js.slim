@@ -1,5 +1,6 @@
-| $('.calendar').fullCalendar('removeEvents', '
-= "recurring_#{@recurring_task.id}"
-| '); $('.calendar').fullCalendar( 'renderEvents', $.parseJSON("
-= j render(@recurring_task, format: :json).html_safe
-| "), true ); $('.modal').modal('hide'); 
+|
+  $('.calendar').fullCalendar('removeEvents', "recurring_#{@recurring_task.id}");
+  $('.calendar').fullCalendar( 'renderEvents',
+    $.parseJSON("#{j render(@recurring_task, format: :json).html_safe}"), true );
+  $('.modal').modal('hide');
+  toastr.success('#{t(".update_recurring_task")}')

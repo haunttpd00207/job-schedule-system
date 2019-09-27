@@ -1,8 +1,9 @@
 - if @recurring_task.errors.any?
-  |  $("#error_messages").html('
-  = j render "shared/error_messages", object: @recurring_task
-  | '); $(".modal").animate({scrollTop : 0}, 500); 
+  |
+    $("#error_messages").html('#{ j render "shared/error_messages", object: @recurring_task }'); $(".modal").animate({scrollTop : 0}, 500);
 - else
-  |  $('.calendar').fullCalendar( 'renderEvents', $.parseJSON("
-  =j render(@recurring_task, format: :json).html_safe
-  | "), true ); $('.modal').modal('hide'); 
+  |
+    $('.calendar').fullCalendar( 'renderEvents',
+      $.parseJSON("#{ j render(@recurring_task, format: :json).html_safe }"), true );
+    $('.modal').modal('hide');
+    toastr.success('#{t(".create_recurring_task")}')
