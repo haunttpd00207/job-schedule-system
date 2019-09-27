@@ -80,14 +80,14 @@ en:
       new:
         title-pass: "Forgot your password?"
         notice-pass: "Enter your email address below and we will send you a link to reset your password."
-        lb-email: "Email Address"
+        email-reg: &email-reg "Email Address"
         btn-pass: "Send me reset password instructions"
     registrations:
       edit:
         title-reg: "Your Account"
         user-reg: "Your Name"
         lb-conf: "Currently waiting confirmation for:"
-        email-reg: "Email Address"
+        email-reg: *email-reg
         pass-reg: "Password"
         lb-message: "Leave blank if you don't want to change it"
         lb-confir: "Confirm Password"
@@ -99,14 +99,14 @@ en:
       new:
         title-reg: "Sign up"
         user-reg: "Your Name"
-        email-reg: "Email Address"
+        email-reg: *email-reg
         pass-reg: "Password"
         lb-confir: "Confirm Password"
         btn-sign: "Sign up"
     sessions:
       new:
         title-login: "Log in your account"
-        email-reg: "Email Address"
+        email-reg: *email-reg
         pass-reg: "Password"
         title-rem: "Remember me"
         btn-sess: "Log in"
@@ -120,3 +120,6 @@ en:
   static_pages:
     home:
       title-home: "Static pages of home"
+  users:
+    index:
+      search-placeholder: "Search.."

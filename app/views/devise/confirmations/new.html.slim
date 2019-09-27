@@ -1,11 +1,7 @@
 .row
   .col-sm-4.ml-auto.mr-auto
     h2.text-center
-<<<<<<< HEAD
       = t ".resend"
-=======
-      = t ".title-confir"
->>>>>>> user_basic_function
     = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
       = render partial: 'devise/shared/error_messages', resource: resource
       .form-group
@@ -13,10 +9,6 @@
         br
         = f.email_field :email, autofocus: true, class: 'form-control', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
       .actions
-<<<<<<< HEAD
         = f.submit t(".resend"), class: 'btn btn-primary btn-lg btn-block'
-=======
-        = f.submit t ".btn-new", class: 'btn btn-primary btn-lg btn-block'
->>>>>>> user_basic_function
     .text-center
       = render "devise/shared/links"

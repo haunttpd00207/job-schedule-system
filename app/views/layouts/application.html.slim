@@ -3,16 +3,10 @@ html
   head
     title
       = t ".title-app"
-    = render "layouts/rails_default"
+    = render "shared/rails_default"
   body
-<<<<<<< HEAD
-    = render "layouts/flash_messages"
+    = render "shared/flash_messages"
     .container-fluid
-      = render "layouts/menus"
+      = render "shared/menus"
       #remote_container
       = yield
-=======
-    = render "layouts/menus"
-    = render "layouts/alerts"
-    = yield
->>>>>>> user_basic_function
