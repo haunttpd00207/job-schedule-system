@@ -8,12 +8,7 @@
     = f.input :color, as: :select, collection: [['Blue','blue'], ['Green','green'], ['Red','red']], input_html: { class: 'form-control' }
   .form-actions
     = f.button :submit, class: 'btn btn-success'
-    = link_to t(".new_recurring_task"),
-              new_recurring_task_path,
-              class: 'btn btn-default',
-              remote: true if @task.new_record?
-    = link_to t(".delete_task"),
-              task, method: :delete,
-              class: 'btn btn-danger',
-              data: { confirm: t(".sure") },
-              remote: true unless @task.new_record?
+    = link_to t(".new_recurring_task"), new_recurring_task_path, class: 'btn btn-default', remote: true if @task.new_record?
+    - if @task.open? && !@task.new_record?
+      = link_to t(".done"), task_status_update_task_path(@task), method: :patch, remote: true,
+        class: "btn btn-danger btn-done", data: {confirm: t("sure")}

@@ -11,4 +11,5 @@ json.color task.color unless task.color.blank?
 json.allDay task.all_day_task?
 
 json.update_url task_path(task, method: :patch)
+
 json.edit_url edit_task_path(task)

@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  acts_as_paranoid
   attr_accessor :date_range
 
   belongs_to :user
+  has_many :reports
 
   validates :title, presence: true
   validates :start, presence: true
@@ -18,4 +20,6 @@ class Task < ApplicationRecord
   def all_day_task?
     start == start.midnight && self.end == self.end.midnight
   end
+
+  enum status: { open: 0, done: 1 }
 end

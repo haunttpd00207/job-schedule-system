@@ -29,6 +29,7 @@ gem "slim-rails"
 gem "toastr-rails"
 gem "simple_form"
 gem "html2slim"
+gem "paranoia", "~> 2.2"
 gem "popper_js"
 gem "ice_cube"
 gem "font-awesome-rails"
@@ -42,6 +43,7 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+  gem "pry"
 end
 
 group :test do

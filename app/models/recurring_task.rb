@@ -10,7 +10,7 @@ class RecurringTask < ApplicationRecord
 
   def schedule
     @schedule ||= begin
-      schedule = IceCube::Schedule.new(now = anchor)
+      schedule = IceCube::Schedule.new(anchor)
       case frequency
       when "weekly"
         schedule.add_recurrence_rule IceCube::Rule.weekly(1)
