@@ -1,4 +1,6 @@
 en:
+  sure: "Duoc chua, OK Chua"
+  can_not_done: "Can't done task, please check again!"
   layouts:
     application:
       title-app: "Job Schedule"
@@ -123,3 +125,7 @@ en:
   users:
     index:
       search-placeholder: "Search.."
+  shared:
+    tasks:
+      form:
+        done: "Done"

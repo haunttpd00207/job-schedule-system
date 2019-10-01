@@ -1,0 +1,14 @@
+|
+  $('.calendar').fullCalendar('removeEvents', [#{@task.id}]);
+  $('.modal').modal('hide');
+
+  toastr.info('
+button.btn
+  | #{ link_to "Undo", task_restore_path(@task), method: :patch, remote: true , class: "btn btn-outline-info btn-hide"}
+button.btn.btn-hide
+  | Hide
+| ' , 'Task Completed!');
+
+  $(".btn-hide").click(function(){
+    $(".toast").remove();
+  })

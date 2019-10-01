@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_063532) do
+ActiveRecord::Schema.define(version: 2019_09_26_060842) do
 
   create_table "chatroom_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "chatroom_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_09_25_063532) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "direct_message", default: false
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,6 +49,15 @@ ActiveRecord::Schema.define(version: 2019_09_25_063532) do
     t.index ["user_id"], name: "index_recurring_tasks_on_user_id"
   end
 
+  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "task_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_reports_on_task_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
@@ -56,6 +66,9 @@ ActiveRecord::Schema.define(version: 2019_09_25_063532) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_tasks_on_deleted_at"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -68,6 +81,7 @@ ActiveRecord::Schema.define(version: 2019_09_25_063532) do
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -77,5 +91,7 @@ ActiveRecord::Schema.define(version: 2019_09_25_063532) do
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "recurring_tasks", "users"
+  add_foreign_key "reports", "tasks"
+  add_foreign_key "reports", "users"
   add_foreign_key "tasks", "users"
 end

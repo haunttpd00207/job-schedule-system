@@ -1,6 +1,6 @@
 - if flash.present?
   #flash
-    - flash.each do |f, message|
+    - flash.each do |f|
       - case f
       - when "notice"
         - type = "info"
