@@ -9,6 +9,6 @@
   .form-actions
     = f.button :submit, class: 'btn btn-success'
     = link_to t(".new_recurring_task"), new_recurring_task_path, class: 'btn btn-default', remote: true if @task.new_record?
-    - if @task.open? && !@task.new_record?
+    - if @task.open? && !@task.new_record? && @task.start.to_date <= Date.today
       = link_to t(".done"), task_status_update_task_path(@task), method: :patch, remote: true,
         class: "btn btn-danger btn-done", data: {confirm: t("sure")}
