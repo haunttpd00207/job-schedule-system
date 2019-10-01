@@ -7,7 +7,7 @@ button.btn
   | #{ link_to "Undo", task_restore_path(@task), method: :patch, remote: true , class: "btn btn-outline-info btn-hide"}
 button.btn.btn-hide
   | Hide
-| ' , 'Task Completed!');
+| ' , 'Task <b class="task_title">#{@task.title}</b> Completed!');
 
   $(".btn-hide").click(function(){
     $(".toast").remove();
