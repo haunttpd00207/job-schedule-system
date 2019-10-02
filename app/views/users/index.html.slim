@@ -13,6 +13,7 @@
       - @users.each do |user|
         tr
           td
-            = link_to online_status(user), direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id }
+            = link_to direct_message_path(user), method: :post, data: {behavior: "chatroom-link"} do
+              = online_status(user)
           td = user.email
           td = user.role

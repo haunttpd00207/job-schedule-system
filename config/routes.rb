@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   end
 
   resources :recurring_tasks
-  resources :direct_messages
+  resources :direct_messages, only: :show
+
+  post "direct_messages/:user_id", to: "direct_messages#create"
 
 end

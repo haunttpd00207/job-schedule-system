@@ -1,6 +1,28 @@
 en:
-  sure: "Duoc chua, OK Chua"
+  sure: "Are you sure dude?"
   can_not_done: "Can't done task, please check again!"
+  chatrooms:
+    edit:
+      title-edit: "Editing chatroom"
+      btn-show: "Show"
+      btn-back: "Back"
+    index:
+      title-edit: "All Channels"
+      mess: "Type something in the input field to search the table for names:"
+      lb-channel: "Chanel Name"
+      lb-date: "Date Created"
+      lb-number: "Number of Members"
+      lb-action: "Control Action"
+      btn-destroy: "Destroy"
+      mess-sure: "Are you sure?"
+      btn-edit: "Edit"
+      btn-leave: "Leave"
+      btn-join: "Join"
+    new:
+      title-new: "New chatroom"
+      btn-back: "Back"
+    show:
+      mess-show: "Typing something to talk..."
   layouts:
     application:
       title-app: "Job Schedule"
@@ -9,6 +31,11 @@ en:
       logout: "Log out"
       create_user: "Create Account"
       sigin: "Sign in"
+    left:
+      home: "HOME"
+      login: "LOGIN"
+      channels: "CHANNELS"
+      members: "MEMBERS"
   tasks:
     edit:
       edit_task: "Edit Task"
@@ -34,7 +61,7 @@ en:
     create:
       create_recuring_task: "Create recurring task successfully"
     update:
-      update_recuring_task: "Update recurring task successfully"
+      update_recurring_task: "Update recurring task successfully"
       update_anchor_task: "Update anchor recurring task successfully"
     destroy:
       destroy_recuring_task: "Delete recurring task successfully"
@@ -125,6 +152,12 @@ en:
   users:
     index:
       search-placeholder: "Search.."
+      destroy_recurring_task: "Delete recurring task successfully"
+      title: "All Users"
+      mess: "Type something in the input field to search the table for names, emails, or role:"
+      name: "User Name"
+      email: "Email"
+      role: "Role"
   shared:
     tasks:
       form:
