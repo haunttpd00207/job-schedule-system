@@ -16,6 +16,7 @@
  *= require bootstrap-datepicker
  *= require toastr
  *= require font-awesome
+ *= require jquery.countdown
  *= require_tree .
  *= require_self
  */

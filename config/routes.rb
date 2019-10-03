@@ -19,8 +19,11 @@ Rails.application.routes.draw do
   resources :holidays, only: :index
   resources :recurring_tasks
   resources :direct_messages, only: :show
+  resources :reports
 
   post "direct_messages/:user_id", to: "direct_messages#create"
-  resources :recurring_tasks
-  resources :reports
+
+  scope :users do
+    resources :workings, only: [:create, :update]
+  end
 end

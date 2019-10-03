@@ -15,6 +15,20 @@ div#remote_container {
 .container {
   max-width: 90%;
 }
+div#clock {
+  padding: 7px 0px 48px 4px;
+  border-radius: 5px;
+}
+.countdown-section {
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  padding: 10px 5px 10px 5px;
+  background: #fde19a;
+}
+.is-countdown{
+  font-size: 11px;
+  color: #000;
+}
 #toast-container {
   top: auto !important;
   right: auto !important;
@@ -421,20 +435,41 @@ input#search {
 }
 
 .fc-month-view td.fc-bgevent {
-  padding: 30px !important;
+  padding: 25px 0 !important;
   font-size: 14px;
   color: black;
   opacity: 0.8;
   text-align: center;
 }
 .fc-agendaWeek-view td.fc-bgevent {
-  padding: 14px !important;
-  font-size: 14px;
+  padding: 3px !important;
+  font-size: 13px;
   color: black;
   opacity: 0.8;
   text-align: center;
 }
 
-.task_title{
+a.close-btn-stop {
+    background: red;
+    color: #fff;
+    margin: -13px;
+    padding: 10px;
+    border-radius: 5px;
+}
+a.close-btn-stop:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  color: black;
+}
+a.open-btn-stop {
+    background: #2084d4;
+    color: #fff;
+    margin: -13px;
+    padding: 10px;
+    border-radius: 5px;
+}
+a.open-btn-stop:hover {
+  opacity: 0.8;
+  text-decoration: none;
   color: black;
 }

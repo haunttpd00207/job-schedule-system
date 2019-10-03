@@ -21,4 +21,6 @@
 //= require bootstrap-datepicker
 //= require activestorage
 //= require toastr
+//= require jquery.countdown
+//= require coutdown
 //= require_tree .

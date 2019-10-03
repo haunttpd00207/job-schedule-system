@@ -3,5 +3,12 @@
     .col-md-2
     .col-md-2
       #mini-calendar
+      .timer
+        #show_timer
+          - if @working.present? && @working.checkin.strftime("%F") == Time.now.strftime("%F")
+            = render "working", working: @working
+          - else
+            button#start.btn.btn-secondary
+              = link_to t(".start_working"), workings_path, method: :post, remote: true, class: "open-btn-stop"
     .col-md-8
       .calendar
