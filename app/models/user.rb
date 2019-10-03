@@ -13,6 +13,4 @@ class User < ApplicationRecord
   has_many :messages
 
   enum role: { user: 0, leader: 1, admin: 2 }
-
-  after_update_commit { AppearanceBroadcastJob.perform_later self }
 end

@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def strftimes(message)
-    message.created_at.strftime("%I:%M %p")
+    message.created_at.localtime.strftime("%I:%M %p")
   end
 
   def count_user_chatrooms(chatroom)
