@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    meta[content="text/html; charset=UTF-8" http-equiv="Content-Type"]
+  body
+    p
+      - @reports.each do |rp|
+        = rp.task.title
+        = rp.task.color unless rp.task.color.blank?
+        = rp.task.start.localtime
+        = rp.task.end.localtime
