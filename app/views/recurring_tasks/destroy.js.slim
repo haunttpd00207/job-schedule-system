@@ -1,3 +1,4 @@
-| $('.calendar').fullCalendar('removeEvents', '
-= "recurring_#{@recurring_task.id}"
-| '); $('.modal').modal('hide'); 
+|
+  $('.calendar').fullCalendar('removeEvents', "recurring_#{@recurring_task.id}");
+  $('.modal').modal('hide');
+  toastr.error('#{t(".destroy_recurring_task")}')

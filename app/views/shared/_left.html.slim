@@ -1,0 +1,38 @@
+nav.main-menu
+  div
+    .settings
+    #style-1.scrollbar
+      ul
+        li
+          a[href="#"]
+            = link_to root_path do
+              i.fa.fa-home.fa-lg
+              span.nav-text
+                = t ".home"
+        li
+          a[href="#"]
+            = link_to new_user_session_path do
+              i.fa.fa-user.fa-lg
+              span.nav-text
+                = t ".login"
+        - if user_signed_in?
+            ul
+              li.darkerlishadow
+                a[href="#"]
+                  = link_to chatrooms_path do
+                    i.fa.fa-desktop.fa-lg
+                    span.nav-text
+                      = t ".channels"
+            ul
+              li.chatrooms
+                - current_user.chatrooms.public_channels.each do |chatroom|
+                  ul
+                    li
+                      = link_to "# #{chatroom.name}", chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id}
+            ul
+              li.darkerlishadow
+                a[href="#"]
+                  = link_to users_path do
+                    i.fa.fa-align-left.fa-lg
+                    span.nav-text
+                      = t ".members"

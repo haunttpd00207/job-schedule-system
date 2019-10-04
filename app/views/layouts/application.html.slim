@@ -7,6 +7,8 @@ html
   body
     = render "shared/flash_messages"
     .container-fluid
+      = render "shared/left"
+    .container
       = render "shared/menus"
       #remote_container
       = yield
