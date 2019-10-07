@@ -51,6 +51,9 @@ en:
       update_task: "Update task successfully"
     destroy:
       destroy_task: "Delete task successfully"
+  workings:
+    create:
+      content: "Today is late for work"
   recurring_tasks:
     new:
       create_recurring: "Create Recurring Task"
@@ -85,21 +88,31 @@ en:
   layouts:
     application:
       title-app: "Job Schedule"
+    admin:
+      title-admin: "Admin Job Schedule"
   static_pages:
     home:
       title-home: "Static pages of home"
       start: "start"
     working:
-      date_working: "Date Wokring: "
-      start_working: "Start Wokring: "
-      end_working: "End Working: "
-      total_working: "Total Working: "
+      date_working: "Date wokring: "
+      start_working: "Start wokring: "
+      end_working: "End working: "
+      total_working: "Total time work today: "
+      status: "Status working: "
+      time_late_work: "Total time late for work: "
+      show_report: "Show Reports"
+      on_time: "Go to work on time today"
     stop:
       stop: "stop"
       stop_working: "Stop Working"
       done_working: "Done Working"
       send_report: "Send Report before clicking finish working"
       not_press: "The end of the working day is 17:00. Please do not press the button to end working today"
+    suggest:
+      waiting: "Waiting"
+      suggest: "Suggest"
+      reason_off: "Reason please off working"
   users:
     index:
       search-placeholder: "Search.."
@@ -109,8 +122,38 @@ en:
       name: "User Name"
       email: "Email"
       role: "Role"
+  suggests:
+    form_suggest:
+      content_suggest: "Content Suggest"
+      suggest: "Suggest"
   shared:
     tasks:
       form:
         done: "Done"
       start_working: "Start Working"
+  admin:
+    suggests:
+      index:
+        not_admin: "You do not have access to the admin page"
+        suggest_not: "Suggest Not Found"
+        id_user: "ID User"
+        user_name: "User Name"
+        email: "Email"
+        total_suggests: "Total Suggests"
+        status: "Status"
+        action: "Action"
+      suggest:
+        approved: "Approved"
+        rejected: "Rejected"
+    users:
+      user:
+        id: "ID"
+        none: "None"
+        waiting: "Waiting"
+        show: "Show"
+        content: "Content Suggest"
+        timeoff: "Time Off"
+        permission: "Permission"
+        status: "Status"
+        action: "Action"
+

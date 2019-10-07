@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+module Admin
+  class SuggestsController < BaseController
+    before_action :load_suggest, only: :update
+
+    def index
+      @users = User.includes(:suggests).newest.select { |u| u.suggests.count.positive? }
+    end
+
+    def edit; end
+
+    def update
+      @suggest.status = params[:value]
+      @suggest.save
+      @suggest.user.open! if @suggest.approved?
+      respond_to do |format|
+        format.js
+      end
+    end
+
+    private
+
+    def load_suggest
+      @suggest = Suggest.find_by id: params[:id]
+      return if @suggest
+      redirect_to admin_root_path, danger: t(".suggest_not")
+    end
+  end
+end

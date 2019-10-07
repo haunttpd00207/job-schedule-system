@@ -1,0 +1,17 @@
+table.table.table-striped#accordion
+  thead
+    tr
+      th
+        = t ".id_user"
+      th
+        = t ".user_name"
+      th
+        = t ".email"
+      th
+        = t ".total_suggests"
+      th
+        = t ".status"
+      th
+        = t ".action"
+  tbody
+    = render @users

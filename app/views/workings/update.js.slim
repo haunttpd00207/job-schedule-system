@@ -1,2 +1,3 @@
 |
-  $('#show_timer').html('#{j render "static_pages/working", working: @working}');
+  $('#show_timer').html('#{j render "static_pages/working", working: @working, suggest: @suggest}');
+  $('.suggest').remove()

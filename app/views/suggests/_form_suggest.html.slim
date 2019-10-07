@@ -1,0 +1,4 @@
+= simple_form_for :suggest, remote: true, url: suggests_path do |f|
+  #error_messages
+  = f.input :content, label: t(".content_suggest"), as: :text, input_html: { 'rows' => 5, class: "form-control", value: "" }
+  = f.submit t(".suggest"), class: 'btn btn-success'
