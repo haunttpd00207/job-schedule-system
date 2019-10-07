@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-tasks = recurring_task.tasks(params[:start], params[:end])
+params[:limit] = recurring_task.limit.blank? ? 0 : recurring_task.limit
+tasks = recurring_task.tasks(params[:start], Time.now.end_of_month + params[:limit].month)
 json.array! tasks do |task|
   json.id "recurring_#{recurring_task.id}"
   json.title recurring_task.title
   json.start task.strftime("%Y-%m-%d")
   json.end (task + 1.day).strftime("%Y-%m-%d")
+  json.limit recurring_task.limit
 
   json.color recurring_task.color unless recurring_task.color.blank?
   json.allDay true

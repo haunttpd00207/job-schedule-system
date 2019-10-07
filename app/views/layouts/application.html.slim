@@ -6,9 +6,9 @@ html
     = render "shared/rails_default"
   body
     = render "shared/flash_messages"
+    = render "shared/menus"
     .container-fluid
       = render "shared/left"
     .container
-      = render "shared/menus"
       #remote_container
       = yield

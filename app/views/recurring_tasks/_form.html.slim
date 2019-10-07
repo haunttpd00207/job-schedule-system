@@ -3,8 +3,9 @@
   .form-inputs
     = f.input :title, input_html: { class: "form-control" }
     = f.input :anchor, input_html: { class: "form-control" }
+    = f.input :limit, as: :select, collection: t(".months").invert, input_html: { class: 'form-control' }
     = f.input :frequency, as: :select, collection: RecurringTask.frequencies.keys, input_html: { class: "form-control" }
-    = f.input :color, as: :select, collection: [['Blue','blue'], ['Green','green'], ['Red','red']], input_html: { class: 'form-control' }
+    = f.input :color, as: :select, collection: t(".colors").invert, input_html: { class: 'form-control' }
   .form-actions
     = f.button :submit
     = link_to 'New Task',

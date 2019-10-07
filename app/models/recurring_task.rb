@@ -7,6 +7,7 @@ class RecurringTask < ApplicationRecord
   validates :title, presence: true
   validates :anchor, presence: true
   validates :frequency, presence: true
+  validates :color, presence: true
 
   def schedule
     @schedule ||= begin
