@@ -4,12 +4,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
   devise_for :users
 
-  scope :users do
-    post "/reports", to: "reports#create"
-    get "/reports", to: "reports#index"
-  end
-
-  match '/users',   to: 'users#index',   via: 'get'
+  match '/users', to: 'users#index', via: 'get'
 
   resources :tasks do
     resources :status_update_tasks, only: :update
@@ -26,4 +21,6 @@ Rails.application.routes.draw do
   resources :direct_messages, only: :show
 
   post "direct_messages/:user_id", to: "direct_messages#create"
+  resources :recurring_tasks
+  resources :reports
 end

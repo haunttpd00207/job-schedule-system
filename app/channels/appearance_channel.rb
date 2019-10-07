@@ -15,7 +15,7 @@ class AppearanceChannel < ApplicationCable::Channel
     current_user.toggle!(:online)
     stream_from("appearances_channel") if current_user.online
     ActionCable.server.broadcast "appearances_channel",
-                                   user_id: current_user.id,
-                                   online: current_user.online
+                                 user_id: current_user.id,
+                                 online: current_user.online
   end
 end
