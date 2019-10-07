@@ -8,4 +8,9 @@
     tbody
       = render @reports
   = paginate @reports, theme: 'twitter-bootstrap-4'
-  = link_to "Report", reports_path, method: :post, class: "btn btn-primary", style: "float: right"
+
+  = form_tag reports_path, method: :post, style: "float: right" do
+    select.js-example-basic-single[name="channel"]
+      - @channels.each do |channel|
+        option = channel.name
+    = button_tag "report", class: "btn btn-primary"

@@ -17,6 +17,7 @@
  *= require toastr
  *= require font-awesome
  *= require jquery.countdown
+ *= require select2
  *= require_tree .
  *= require_self
  */

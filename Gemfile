@@ -39,6 +39,8 @@ gem "paranoia", "~> 2.2"
 gem "popper_js"
 gem "ice_cube"
 gem "font-awesome-rails"
+gem "omniauth-slack"
+gem "select2-rails"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
