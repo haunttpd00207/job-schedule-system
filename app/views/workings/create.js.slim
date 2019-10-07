@@ -1,0 +1,3 @@
+|
+  $('#show_timer').html('#{j render "static_pages/working", working: @working}');
+  $('#clock').countdown({ until: $('#remaining_time').val(), format: 'HMS', onExpiry: function() { $('.submit-time-out').hidden(); } });

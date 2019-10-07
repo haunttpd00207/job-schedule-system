@@ -104,12 +104,23 @@ ActiveRecord::Schema.define(version: 2019_10_03_080036) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "username"
+    t.integer "permission", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 0
     t.boolean "online", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "workings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "checkin"
+    t.datetime "checkout"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_workings_on_user_id"
   end
 
   add_foreign_key "chatroom_users", "chatrooms"
@@ -120,4 +131,5 @@ ActiveRecord::Schema.define(version: 2019_10_03_080036) do
   add_foreign_key "reports", "tasks"
   add_foreign_key "reports", "users"
   add_foreign_key "tasks", "users"
+  add_foreign_key "workings", "users"
 end

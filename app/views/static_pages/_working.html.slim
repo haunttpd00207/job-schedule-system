@@ -1,0 +1,23 @@
+- if Time.now.strftime("%m/%d/%Y") == working.checkin.localtime.strftime("%m/%d/%Y")
+  = hidden_field_tag :remaining_time, (working.checkout - Time.now).to_i
+  - if working.checkout.strftime("%T") != working.updated_at.strftime("%T")
+    #clock
+  dl
+    dt
+      = t ".date_working"
+    dd
+      = working.checkin.localtime.strftime("%a - %m/%d/%Y")
+    dt
+      = t ".start_working"
+    dd
+      = working.checkin.localtime.strftime("%T")
+    dt
+      = t ".end_working"
+    dd
+      = working.checkout.localtime.strftime("%T")
+    dt
+      = t ".total_working"
+    dd
+      = Time.at((working.checkout - working.checkin).to_i).utc.strftime("%H:%M:%S")
+  button#stop.btn.btn-secondary
+    = render "static_pages/stop", working: working

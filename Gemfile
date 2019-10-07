@@ -15,6 +15,7 @@ gem "bootstrap-datepicker-rails"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "delayed_job_active_record"
+gem "jquery-countdown-rails"
 gem "devise"
 gem "figaro"
 gem "fullcalendar-rails"
@@ -41,7 +42,6 @@ gem "font-awesome-rails"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
-  gem "pry-rails"
 end
 
 group :development do

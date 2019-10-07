@@ -88,6 +88,18 @@ en:
   static_pages:
     home:
       title-home: "Static pages of home"
+      start: "start"
+    working:
+      date_working: "Date Wokring: "
+      start_working: "Start Wokring: "
+      end_working: "End Working: "
+      total_working: "Total Working: "
+    stop:
+      stop: "stop"
+      stop_working: "Stop Working"
+      done_working: "Done Working"
+      send_report: "Send Report before clicking finish working"
+      not_press: "The end of the working day is 17:00. Please do not press the button to end working today"
   users:
     index:
       search-placeholder: "Search.."
@@ -101,3 +113,4 @@ en:
     tasks:
       form:
         done: "Done"
+      start_working: "Start Working"
