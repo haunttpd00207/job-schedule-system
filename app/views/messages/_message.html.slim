@@ -1,22 +1,22 @@
-- if @message
-  - if @message.user == current_user
+- @messages.each do |message|
+  - if message.user == current_user
     .outgoing_msg
       .name-sender
-        = @message.user.username
+        = message.username
       .sent_msg
         p
-          = @message.body
+          = message.body
         span.time_date
-          = strftimes(@message)
+          = strftimes(message)
   - else
     .incoming_msg
       .incoming_msg_img
         = image_tag "user-profile.png"
       .received_msg
         .name-receiveder
-          = @message.user.username
+          = message.username
         .received_withd_msg
           p
-            = @message.body
+            = message.body
           span.time_date
-            = strftimes(@message)
+            = strftimes(message)

@@ -4,8 +4,9 @@ class DirectMessagesController < ApplicationController
   before_action :authenticate_user!
 
   def show
+    @mess = Message.new
     @chatroom = Chatroom.find params[:id]
-    @messages = @chatroom.messages.order(created_at: :asc).limit(Settings.limit.messages)
+    @messages = @chatroom.messages.includes(:user).order(created_at: :asc).limit(Settings.limit.messages)
     @chatroom_user = current_user.chatroom_users.find_by(chatroom_id: @chatroom.id)
     render "chatrooms/show"
   end

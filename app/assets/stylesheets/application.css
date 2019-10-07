@@ -15,6 +15,7 @@
  *= require daterangepicker
  *= require bootstrap-datepicker
  *= require toastr
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */

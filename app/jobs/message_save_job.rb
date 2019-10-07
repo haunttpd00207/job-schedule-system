@@ -9,6 +9,6 @@ class MessageSaveJob < ApplicationJob
                                  username: message.user.username,
                                  body: message.body,
                                  chatroom_id: message.chatroom_id,
-                                 created_at: message.created_at.strftime("%I:%M %p")
+                                 created_at: message.created_at.localtime.strftime("%I:%M %p")
   end
 end
