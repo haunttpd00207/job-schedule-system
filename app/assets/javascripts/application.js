@@ -23,4 +23,5 @@
 //= require toastr
 //= require jquery.countdown
 //= require coutdown
+//= require select2
 //= require_tree .
