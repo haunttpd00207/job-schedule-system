@@ -1,0 +1,40 @@
+tr
+  td
+    = user.id
+  td
+    = user.username
+  td
+    = user.email
+  td
+    = user.suggests.count
+  - if user.suggests.waiting.any?
+    td
+      span.badge.badge-warning
+        = t ".waiting"
+  - else
+    td
+      span.badge.badge-danger
+        = t ".none"
+  td
+    button.btn.btn-info[data-toggle="collapse" data-target="#info#{user.id}"]
+      = t ".show"
+tr
+  td.suggest_list[colspan=6]
+    div id="info#{user.id}" class="collapse" data-parent="#accordion"
+      table.table
+        thead
+          tr.sub-suggest
+            th scope="col"
+              = t ".id"
+            th scope="col"
+              = t ".content"
+            th scope="col"
+              = t ".timeoff"
+            th scope="col"
+              = t ".permission"
+            th scope="col"
+              = t ".status"
+            th scope="col"
+              = t ".action"
+        tbody
+          = render user.suggests.newest

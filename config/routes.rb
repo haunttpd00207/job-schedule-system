@@ -22,8 +22,14 @@ Rails.application.routes.draw do
   resources :reports
 
   post "direct_messages/:user_id", to: "direct_messages#create"
+  resources :suggests
 
   scope :users do
     resources :workings, only: [:create, :update]
+  end
+
+  namespace :admin do
+    root "suggests#index"
+    resources :suggests
   end
 end

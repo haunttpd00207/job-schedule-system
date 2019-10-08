@@ -11,9 +11,11 @@ class User < ApplicationRecord
   has_many :chatroom_users
   has_many :chatrooms, through: :chatroom_users
   has_many :messages
+  has_many :suggests
 
   enum permission: { close: 0, open: 1 }
   enum role: { user: 0, leader: 1, admin: 2 }
+  scope :newest, -> { order created_at: :desc }
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -24,4 +26,9 @@ class User < ApplicationRecord
       user.role = auth.info.is_admin == false ? :user : :admin
     end
   end
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end

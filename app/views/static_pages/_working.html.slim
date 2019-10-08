@@ -1,6 +1,6 @@
-- if Time.now.strftime("%m/%d/%Y") == working.checkin.localtime.strftime("%m/%d/%Y")
+- if Time.now.to_date == working.checkin.localtime.to_date
   = hidden_field_tag :remaining_time, (working.checkout - Time.now).to_i
-  - if working.checkout.strftime("%T") != working.updated_at.strftime("%T")
+  - if working.checkout.to_datetime != working.updated_at.to_datetime
     #clock
   dl
     dt
@@ -15,9 +15,26 @@
       = t ".end_working"
     dd
       = working.checkout.localtime.strftime("%T")
+    - if working.content.present?
+      dt
+        = t ".status"
+      dd.badge.badge-danger.timeworking
+        = working.content
+      dt
+        = t ".time_late_work"
+      dd
+        = Time.at((working.checkin - Time.parse("08:00:00", Time.now)).to_i).utc.strftime("%H:%M:%S")
+    - else
+      dt
+        = t ".status"
+      dd.badge.badge-success.timeworking
+        = t ".on_time"
     dt
       = t ".total_working"
     dd
       = Time.at((working.checkout - working.checkin).to_i).utc.strftime("%H:%M:%S")
-  button#stop.btn.btn-secondary
-    = render "static_pages/stop", working: working
+  = render "static_pages/stop", working: working
+  = link_to t(".show_report"), reports_path, class: "btn btn-success report"
+  - unless suggest && suggest.approved? || Time.now.to_datetime > working.checkout.localtime.to_datetime
+    = render "static_pages/suggest", suggest: suggest
+

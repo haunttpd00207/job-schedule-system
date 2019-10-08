@@ -1,0 +1,32 @@
+tr id="suggest-action-#{suggest.id}"
+  td
+    = suggest.id
+  td
+    = suggest.content
+  td
+    = suggest.created_at.localtime.strftime("%d/%m/%Y %T")
+  - if suggest.user.close?
+    td
+      span.label.label-warning
+        = suggest.user.permission
+  - elsif suggest.user.open?
+    td
+      span.label.label-success
+        = suggest.user.permission
+  - if suggest.waiting?
+    td
+      span.badge.badge-warning
+        = suggest.status
+  - elsif suggest.rejected?
+    td
+      span.badge.badge-danger
+        = suggest.status
+  -else
+    td
+      span.badge.badge-success
+        = suggest.status
+  td.center
+    - if suggest.waiting?
+      - if suggest.user.close?
+        = link_to t(".approved"), admin_suggest_path(suggest, value: :approved), method: :put, remote: true, class: "btn btn-success"
+        = link_to t(".rejected"), admin_suggest_path(suggest, value: :rejected), method: :put, remote: true, class: "btn btn-danger"

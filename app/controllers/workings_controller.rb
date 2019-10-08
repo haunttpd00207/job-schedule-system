@@ -5,6 +5,7 @@ class WorkingsController < ApplicationController
 
   def create
     working_params = { checkin: Time.now, checkout: Time.parse("17:00", Time.now) }
+    working_params.merge!(content: t(".content")) if working_params[:checkin] > Time.parse("08:00:59", Time.now)
     @working = current_user.workings.build working_params
     @working.save
     respond_to do |format|

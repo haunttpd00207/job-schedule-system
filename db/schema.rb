@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(version: 2019_10_06_060959) do
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
+  create_table "suggests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "content"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_suggests_on_user_id"
+  end
+
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
@@ -110,13 +119,14 @@ ActiveRecord::Schema.define(version: 2019_10_06_060959) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "username"
+    t.integer "permission", default: 0
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role", default: 0
+    t.boolean "online", default: false
     t.string "provider"
     t.string "uid"
     t.string "image"
-    t.boolean "online", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -138,6 +148,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_060959) do
   add_foreign_key "recurring_tasks", "users"
   add_foreign_key "reports", "tasks"
   add_foreign_key "reports", "users"
+  add_foreign_key "suggests", "users"
   add_foreign_key "tasks", "users"
   add_foreign_key "workings", "users"
 end

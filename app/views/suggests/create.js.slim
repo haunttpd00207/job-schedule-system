@@ -1,0 +1,10 @@
+- if @suggest.errors.any?
+  |
+    $("#error_messages").html('#{ j render "shared/error_messages", object: @suggest }');
+    $(".modal").animate({ scrollTop : 0 }, 500);
+- else
+  |
+    $('.suggest').replaceWith('#{ j render "static_pages/suggest", suggest: @suggest }');
+    $('.modal').modal('hide');
+    $("#suggest_content").val("");
+    toastr.success('#{t(".create_suggest")}')
