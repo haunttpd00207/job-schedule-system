@@ -17,4 +17,8 @@ class User < ApplicationRecord
   has_many :messages
 
   enum role: { user: 0, leader: 1, admin: 2 }
+
+  def self.search_user(search_user)
+    where("lower(users.username) LIKE :search_user", search_user: "%#{search_user}%").uniq
+  end
 end

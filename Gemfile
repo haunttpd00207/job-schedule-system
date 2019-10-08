@@ -7,6 +7,7 @@ ruby "2.5.1"
 
 gem "rails", "~> 5.2.3"
 
+gem "faker"
 gem "redis"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.3.1"
@@ -24,6 +25,7 @@ gem "bootstrap4-kaminari-views"
 gem "momentjs-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "puma", "~> 3.11"
 gem "rubocop", require: false

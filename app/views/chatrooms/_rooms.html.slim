@@ -1,0 +1,24 @@
+table.table.table-striped.table-condensed
+  thead
+    tr
+      th = t ".lb-channel"
+      th = t ".lb-date"
+      th = t ".lb-number"
+      th = t ".lb-action"
+  tbody#myTable
+    - @chatrooms.each do |chatroom|
+      tr
+        td = chatroom.name
+        td = strftimes(chatroom)
+        td = count_user_chatrooms(chatroom)
+        td
+          .space
+            -if current_user.admin?
+              = link_to t(".btn-destroy"), chatroom, method: :delete, data: { confirm: t(".mess-sure") }
+            - if admin_or_leader?
+              = link_to t(".btn-edit"), edit_chatroom_path(chatroom)
+            - if present_authorization?(chatroom)
+              = link_to t(".btn-leave"), chatroom_chatroom_users_path(chatroom), method: :delete
+            - else
+              = link_to t(".btn-join"), chatroom_chatroom_users_path(chatroom_id: chatroom.id), method: :post
+    = paginate @chatrooms

@@ -4,27 +4,9 @@
   - if current_user.admin?
     form.button_to[method="get"action="chatrooms/new"]
       input.btn.btn-success[value="New Chatrooms" type="submit"]
+  .form-inline
+    = form_tag(search_chatroom_path, method: :get) do
+      = text_field_tag :search, nil, placeholder: t(".search"), class: "form-control mr-sm-2"
+      = button_tag t(".btn-search"), class:  "btn btn-primary m-sm-3 my-sm-0"
   br
-  table.table.table-striped.table-condensed
-    thead
-      tr
-        th = t ".lb-channel"
-        th = t ".lb-date"
-        th = t ".lb-number"
-        th = t ".lb-action"
-    tbody#myTable
-      - @chatrooms.each do |chatroom|
-        tr
-          td = chatroom.name
-          td = strftimes(chatroom)
-          td = count_user_chatrooms(chatroom)
-          td
-            .space
-              -if current_user.admin?
-                = link_to t(".btn-destroy"), chatroom, method: :delete, data: { confirm: t(".mess-sure") }
-              - if admin_or_leader?
-                = link_to t(".btn-edit"), edit_chatroom_path(chatroom)
-              - if present_authorization?(chatroom)
-                = link_to t(".btn-leave"), chatroom_chatroom_users_path(chatroom), method: :delete
-              - else
-                = link_to t(".btn-join"), chatroom_chatroom_users_path(chatroom_id: chatroom.id), method: :post
+  = render "chatrooms/rooms"

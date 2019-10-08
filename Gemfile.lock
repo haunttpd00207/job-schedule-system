@@ -137,6 +137,8 @@ GEM
       dry-logic (~> 1.0, >= 1.0.2)
     erubi (1.9.0)
     execjs (2.7.0)
+    faker (2.5.0)
+      i18n (~> 1.6.0)
     ffi (1.11.1)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -348,6 +350,7 @@ DEPENDENCIES
   config
   delayed_job_active_record
   devise
+  faker
   figaro
   font-awesome-rails
   fullcalendar-rails
@@ -356,6 +359,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-countdown-rails
   jquery-rails
+  jquery-ui-rails
   kaminari
   listen (>= 3.0.5, < 3.2)
   momentjs-rails

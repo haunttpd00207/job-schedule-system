@@ -2,13 +2,11 @@
 
 class ChatroomsController < ApplicationController
   before_action :set_chatroom, only: %i[show edit update destroy]
-
-  def index
-    @chatrooms = Chatroom.public_channels
-  end
+  before_action :load_chatrooms
 
   def show
     @mess = Message.new
+    @users = @chatroom.users.where.not(id: current_user.id)
     @messages = @chatroom.messages.includes(:user).order(created_at: :asc).limit(Settings.limit.messages)
     @chatroom_user = current_user.chatroom_users.find_by(chatroom_id: @chatroom.id)
   end
@@ -49,6 +47,21 @@ class ChatroomsController < ApplicationController
     end
   end
 
+  def search_chatroom
+    if params[:search].blank?
+      redirect_to chatrooms_path, info: "Please typing any thing on search bar"
+    else
+      @result = Chatroom.public_channels.search(params[:search])
+      @chatrooms = Kaminari.paginate_array(@result).page(params[:page]).per(10)
+      render "chatrooms/index"
+    end
+  end
+
+  def autofilltext
+    @chatroom = Chatroom.public_channels.where("name like '%#{params[:term]}%'").collect(&:name)
+    render json: @chatroom.uniq.sort
+  end
+
   private
 
   def set_chatroom
@@ -57,5 +70,9 @@ class ChatroomsController < ApplicationController
 
   def chatroom_params
     params.require(:chatroom).permit(:name)
+  end
+
+  def load_chatrooms
+    @chatrooms = Chatroom.includes(:users).public_channels.page(params[:page]).per(10)
   end
 end

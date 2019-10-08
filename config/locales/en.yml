@@ -9,6 +9,9 @@ en:
     index:
       title-edit: "All Channels"
       mess: "Type something in the input field to search the table for names:"
+      search: "Search for chatrooms"
+      btn-search: "Search"
+    rooms:
       lb-channel: "Chanel Name"
       lb-date: "Created At"
       lb-number: "Number of Members"
@@ -23,6 +26,10 @@ en:
       btn-back: "Back"
     show:
       mess-show: "Typing something to talk..."
+    user_list:
+      title: "Recent"
+      search: "Search user to add"
+      message: "There are no massage at all"
   layouts:
     application:
       title-app: "Job Schedule"
@@ -109,6 +116,7 @@ en:
       name: "User Name"
       email: "Email"
       role: "Role"
+      add: "Add to Rooms"
   shared:
     tasks:
       form:
