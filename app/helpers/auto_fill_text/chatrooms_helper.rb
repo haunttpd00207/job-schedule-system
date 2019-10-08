@@ -1,2 +1,0 @@
-module AutoFillText::ChatroomsHelper
-end
