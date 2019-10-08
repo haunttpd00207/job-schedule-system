@@ -4,6 +4,9 @@
       = t ".title"
   .srch_bar
     .stylish-input-group
+      = form_tag(add_user_path, method: :post) do
+        = hidden_field_tag "chatroom_id", "#{@chatroom.id}"
+        = hidden_field_tag :user_id
         = text_field_tag :search_user, nil, placeholder: t(".search"), class: "form-control mr-sm-2"
   .inbox_chat
     - if @users
@@ -23,3 +26,6 @@
                   = last_message(user)
                 - else
                   = t(".message")
+
+
+
