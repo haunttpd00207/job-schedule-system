@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ReportsHelper
-  URI = ENV['uri_slack']
+  URI = ENV["uri_slack"]
 
   def call_api_slack(reports, channel)
     report = reports.includes(:task).map { |r| r.task.title }.join("\n")

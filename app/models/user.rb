@@ -27,8 +27,7 @@ class User < ApplicationRecord
     end
   end
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  def self.search_user(search_user)
+    where("lower(users.username) LIKE :search_user", search_user: "%#{search_user}%").distinct
+  end
 end

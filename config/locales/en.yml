@@ -7,6 +7,8 @@ en:
       btn-show: "Show"
       btn-back: "Back"
     index:
+      search: "Search for chatrooms"
+      btn-search: "Search"
       title-edit: "All Channels"
       mess: "Type something in the input field to search the table for names:"
       lb-channel: "Chanel Name"
@@ -23,6 +25,10 @@ en:
       btn-back: "Back"
     show:
       mess-show: "Typing something to talk..."
+    user_list:
+      title: "Recent"
+      search: "Search user to add"
+      message: "There are no massage at all"
   layouts:
     application:
       title-app: "Job Schedule"
