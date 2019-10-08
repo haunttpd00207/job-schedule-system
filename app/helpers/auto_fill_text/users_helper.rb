@@ -1,0 +1,2 @@
+module AutoFillText::UsersHelper
+end
