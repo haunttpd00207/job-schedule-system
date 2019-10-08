@@ -21,4 +21,3 @@ class ExternalApiCaller
     response.body
   end
 end
-

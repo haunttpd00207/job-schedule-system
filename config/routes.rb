@@ -28,6 +28,11 @@ Rails.application.routes.draw do
     resources :workings, only: [:create, :update]
   end
 
+  namespace :auto_fill_text do
+    get "/autocomplete", to: "chatrooms#index"
+    get "/getusers", to: "users#index"
+  end
+
   namespace :admin do
     root "suggests#index"
     resources :suggests
