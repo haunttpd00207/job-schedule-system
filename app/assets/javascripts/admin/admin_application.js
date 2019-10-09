@@ -15,4 +15,9 @@
 //= require bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
+//= require cable
 
+
+function Reload(){
+  $(document.getElementById('show-data').innerHTML;
+}

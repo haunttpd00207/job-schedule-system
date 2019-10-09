@@ -1,5 +1,5 @@
 tr
-  td
+  td#users data-user-id="#{ user.id }"
     = user.id
   td
     = user.username
@@ -9,19 +9,19 @@ tr
     = user.suggests.count
   - if user.suggests.waiting.any?
     td
-      span.badge.badge-warning
+      span[class="badge badge-warning status_#{user.id}_user.html.slim" id="suggestion_status_#{user.id}"]
         = t ".waiting"
   - else
     td
-      span.badge.badge-danger
+      span.[class="badge badge-danger status_#{user.id}" id="suggestion_status_#{user.id}"]
         = t ".none"
   td
-    button.btn.btn-info[data-toggle="collapse" data-target="#info#{user.id}"]
+    button[class=".btn btn-info" id="show-data" data-toggle="collapse" data-target="#info#{user.id}"]
       = t ".show"
 tr
   td.suggest_list[colspan=6]
     div id="info#{user.id}" class="collapse" data-parent="#accordion"
-      table.table
+      table[class="table"]
         thead
           tr.sub-suggest
             th scope="col"
@@ -36,5 +36,5 @@ tr
               = t ".status"
             th scope="col"
               = t ".action"
-        tbody
+        tbody[id="refresh"]
           = render user.suggests.newest
