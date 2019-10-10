@@ -14,6 +14,8 @@ module Admin
       @suggest.status = params[:value]
       @suggest.save
       @suggest.user.open! if @suggest.approved?
+      SendEmailSuggestJob.set(wait: 10.seconds).perform_later(@suggest)
+      call_api_slack @suggest
       respond_to do |format|
         format.js
       end

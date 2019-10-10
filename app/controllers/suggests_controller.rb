@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SuggestsController < ApplicationController
+
   def create
     @suggest = current_user.suggests.build suggest_params
     @suggest.save

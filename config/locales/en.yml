@@ -162,4 +162,16 @@ en:
         permission: "Permission"
         status: "Status"
         action: "Action"
-
+  suggest_mailer:
+    suggest_confirm:
+      dear: "Dear "
+      welcome: "Welcome to Ruby Development VietNam"
+      appvored: "We have appvored your request"
+      rejected: "We have rejected your request"
+      name: "Name: "
+      email: "Email: "
+      content: "Content: "
+      create_at: "Created at: "
+      status: "Status: "
+      recommended_code: "Recommended code: "
+      right_reserved: "2019 © RubyDevelopmentDaNang. ALL Rights Reserved."

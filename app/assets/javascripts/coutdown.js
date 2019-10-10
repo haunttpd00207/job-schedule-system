@@ -8,5 +8,6 @@ var countdown = function() {
     }
   });
 }
-document.addEventListener('turbolinks:load', countdown);
-$(document).on('page:update', countdown);
+$(document).ready(function() {
+  countdown();
+});

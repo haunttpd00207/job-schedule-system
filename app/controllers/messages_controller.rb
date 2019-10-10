@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     message = @chatroom.messages.new(message_params)
     message.user = current_user
     message.save
-    MessageSaveJob.perform_later(message)
+    MessageSaveJob.perform_now(messages)
   end
 
   private
