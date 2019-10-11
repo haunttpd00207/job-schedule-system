@@ -8,4 +8,7 @@ html
     = stylesheet_link_tag "admin/admin_application", media: "all"
     = javascript_include_tag "admin/admin_application"
   body
-    = yield
+    = render "shared/flash_messages"
+    = render "shared/menu-admin"
+    .container-fluid
+      = yield

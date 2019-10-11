@@ -42,6 +42,7 @@ gem "ice_cube"
 gem "font-awesome-rails"
 gem "omniauth-slack"
 gem "select2-rails"
+gem "activerecord-import"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]

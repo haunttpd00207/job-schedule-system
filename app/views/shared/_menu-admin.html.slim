@@ -5,6 +5,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.ml-auto
       - if user_signed_in?
+        = render "admin/notifications/notification_center", notifications: @notifications
         li.nav-item.dropdown
           a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
             = current_user.username

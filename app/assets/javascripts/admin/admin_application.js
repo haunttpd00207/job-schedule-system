@@ -14,4 +14,7 @@
 //= require rails-ujs
 //= require bootstrap-sprockets
 //= require activestorage
+//= require admin/notifications
+//= require admin/custom
+//= require cable
 
