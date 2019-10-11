@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :chatroom_users
   has_many :messages
   has_many :suggests
+  has_many :notifications
 
   enum permission: { close: 0, open: 1 }
   enum role: { user: 0, leader: 1, admin: 2 }

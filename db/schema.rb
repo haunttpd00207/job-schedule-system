@@ -68,6 +68,16 @@ ActiveRecord::Schema.define(version: 2019_10_06_060959) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "suggest_id"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["suggest_id"], name: "index_notifications_on_suggest_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "recurring_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
@@ -145,6 +155,8 @@ ActiveRecord::Schema.define(version: 2019_10_06_060959) do
   add_foreign_key "chatroom_users", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "suggests"
+  add_foreign_key "notifications", "users"
   add_foreign_key "recurring_tasks", "users"
   add_foreign_key "reports", "tasks"
   add_foreign_key "reports", "users"

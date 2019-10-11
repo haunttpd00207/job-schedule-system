@@ -133,6 +133,10 @@ en:
       content_suggest: "Content Suggest"
       suggest: "Suggest"
   shared:
+    menu-admin:
+      title: "RUBY DEVELOPMENT"
+    menus:
+      title: "RUBY DEVELOPMENT"
     tasks:
       form:
         done: "Done"
@@ -162,6 +166,9 @@ en:
         permission: "Permission"
         status: "Status"
         action: "Action"
+  notifications:
+    load_notification:
+      notify_not_found: "Notification Not Found"
   suggest_mailer:
     suggest_confirm:
       dear: "Dear "

@@ -16,7 +16,7 @@ class WorkingsController < ApplicationController
   def update
     current_user.close!
     @working.update checkout: Time.now
-  rescue Exception
+  rescue StandardError
     respond_to do |format|
       format.js
     end
