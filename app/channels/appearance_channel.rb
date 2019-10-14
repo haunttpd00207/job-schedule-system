@@ -2,11 +2,13 @@
 
 class AppearanceChannel < ApplicationCable::Channel
   def subscribed
-    status_user
+    if !current_user.online
+      status_user
   end
 
   def unsubscribed
-    status_user
+    if current_user.online
+      status_user
   end
 
   private
